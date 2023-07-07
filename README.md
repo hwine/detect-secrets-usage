@@ -30,3 +30,24 @@ Intial commit - empty repo
    git add --update
    git commit  # succeeds
    ```
+
+6. Once you've audited secrets, you'll find that if you change line numbers in
+   the file, your first commit attempt will show changes made.
+   ```bash
+   # add property to secret.json
+   git add --update
+   git commit  # fails
+   Detect secrets...........................................................Failed
+   - hook id: detect-secrets
+   - exit code: 3
+   - files were modified by this hook
+
+   The baseline file was updated.
+   Probably to keep line numbers of secrets up-to-date.
+   Please `git add .secrets.baseline`, thank you.
+   # if you want, verify the changes
+   git diff .secrets.baseline
+   # see that only `line_number` & `generated_at` properties are changed
+   git add --update
+   git commit  # succeeds
+   ```
