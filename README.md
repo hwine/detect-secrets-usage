@@ -21,3 +21,12 @@ Intial commit - empty repo
    detect-secrets scan >.secrets.baseline
    git commit  # succeeds
    ```
+
+5. Better than just adding to baseline is to use the `audit` functionality to
+   document the inclusion was intentional. (And not just an add-to-baseline to
+   get the warning to go away.)
+   ```bash
+   detect-secrets audit .secrets.baseline
+   git add --update
+   git commit  # succeeds
+   ```
