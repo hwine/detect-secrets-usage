@@ -51,3 +51,9 @@ Intial commit - empty repo
    git add --update
    git commit  # succeeds
    ```
+
+7. If you have files that contain only hashes, but no secrets (such as
+   dependency lock files), you can add those files to your `detect-secrets`
+   configuration in the `.pre-commit-config.yaml` file as [described
+   here](https://github.com/Yelp/detect-secrets#blocking-secrets-not-in-baseline)
+   (at the end of the section).
